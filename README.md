@@ -32,47 +32,50 @@ Input DNA sequences should be provided as plain text strings or FASTA files (for
 
 Each script reads from the input file and prints:
 
-- The **consensus motif**
-- The **score** (lower score = better consensus)
-- The list of **best motifs** found
+- The **frequent k-mers** (pattern)
+- The **counts**
+- The **windows** were the k-mers are found
 
 ---
 
-#### Greedy Motif Search
+#### Frequent k-mer with Mismatches
 
   bash
-```python greedy_motif_search_with_pseudocounts.py```
+```python frequent_kmers_with_mismatches.py```
 
-#### Randomized Motif Search
-
-  bash
-```python randomized_motif_search.py```
-
-#### Gibbs Sampler Motif Search 
+#### Clump Finding
 
   bash
-```python randomized_motif_search_with_gibbs_sampler.py```
+```python clump_finding.py```
 
-You can change the default parameters (k, t, and N) directly in each script's function call at the bottom.
+#### Ori Finder with GC Skew
+
+  bash
+```python ori_finder_with_gc_skew.py```
+
+Parameters like k (k-mer length), d (allowed mismatches), t (threshold count), and L (window length) are defined within each script but can be adjusted for your needs.
 
 ---
 
 ## 🧠 Algorithm Overviews
 
-### Greedy Motif Search
+### Frequent k-mers with Mismatches
 
-- Iteratively builds a motif set by choosing the most probable k-mer using a profile.
-- Fast and deterministic, but may get stuck in local optima.
+- Computes the frequency of all k-mers allowing up to d mismatches.
+- Uses a neighborhood generation approach and mapping between k-mers and numbers.
+- Returns the k-mers with the highest approximate frequency.
 
-### Randomized Motif Search
+### Clump Finding
 
-- Starts with random k-mers, updates motifs using profiles until convergence.
-- Repeated multiple times to improve chances of a better result.
+- Scans a genome with a sliding window of length L.
+- Finds k-mers appearing at least t times within any window (forming clumps).
+- Efficiently updates frequency counts when sliding the window.
 
-### Gibbs Sampling
+### Ori Finder with GC Skews
 
-- Iteratively refines motifs by randomly sampling one at a time based on profiles.
-- Often yields better motifs with enough iterations.
+- Computes GC skew to locate potential replication origin regions.
+- Within L windows around minimum GC skew, finds frequent k-mers with mismatches.
+- Uses a simple GUI to load FASTA files and display results.
 
 ---
 
@@ -86,14 +89,21 @@ GitHub: @heitor-sg5
 
 ## 🧪 Example Output
 
-Consensus: GAAAAAAATTTTTTT
+Window -500: positions 4083876:4084376
+  Pattern: CCGGGATCC | Count: 4
+  Pattern: TGTGGATAA | Count: 4
 
-Score: 2
+Window 0: positions 4084126:4084626
+  Pattern: GATCTTCCG | Count: 3
+  Pattern: CTTCCGGAA | Count: 3
+  Pattern: TCCGGAATC | Count: 3
+  Pattern: CCGGAATCT | Count: 3
+  Pattern: TTTTGCGCC | Count: 3
+  Pattern: GCACCGTGC | Count: 3
 
-Best Motifs: 
-'CAAAAAAATTTTTTT', 
-'GAAAAAAATTTTTTT', 
-'GAAAAAAATTTTTTT', 
-'CAAAAAAATTTTTTT', 
-'GAAAAAAATTTTTTT', 
-'GAAAAAAATTTTTTT'
+Window +500: positions 4084376:4084876
+  Pattern: GATCGGGTT | Count: 3
+  Pattern: ATCGGGTTT | Count: 3
+  Pattern: GCACCGTGC | Count: 3
+  Pattern: GCTGATAAG | Count: 3
+  Pattern: AGCCGATCA | Count: 3
