@@ -79,14 +79,6 @@ Parameters like k (k-mer length), d (allowed mismatches), t (threshold count), a
 
 ---
 
-## 👤 Author
-
-Heitor Gelain do Nascimento
-Email: heitorgelain@outlook.com
-GitHub: @heitor-sg5
-
----
-
 ## 🧪 Example Output
 
 Window -500: positions 4083876:4084376
@@ -107,3 +99,11 @@ Window +500: positions 4084376:4084876
   Pattern: GCACCGTGC | Count: 3
   Pattern: GCTGATAAG | Count: 3
   Pattern: AGCCGATCA | Count: 3
+
+---
+
+## 👤 Author
+
+Heitor Gelain do Nascimento
+Email: heitorgelain@outlook.com
+GitHub: @heitor-sg5
