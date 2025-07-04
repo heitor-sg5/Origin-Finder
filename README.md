@@ -107,3 +107,11 @@ Window +500: positions 4084376:4084876
 Heitor Gelain do Nascimento
 Email: heitorgelain@outlook.com
 GitHub: @heitor-sg5
+
+---
+
+## 📚 References
+
+Bioinformatics Algorithms: An Active Learning Approach (Chapter 1) by
+Phillip Compeau & Pavel Pevzner
+https://bioinformaticsalgorithms.com
