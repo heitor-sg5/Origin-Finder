@@ -64,18 +64,21 @@ Parameters like k (k-mer length), d (allowed mismatches), t (threshold count), a
 - Computes the frequency of all k-mers allowing up to d mismatches.
 - Uses a neighborhood generation approach and mapping between k-mers and numbers.
 - Returns the k-mers with the highest approximate frequency.
+- Time complexity: O(n * k * 3^d + 4^k)
 
 ### Clump Finding
 
 - Scans a genome with a sliding window of length L.
 - Finds k-mers appearing at least t times within any window (forming clumps).
 - Efficiently updates frequency counts when sliding the window.
+- Time complexity: O(n * k + 4^k)
 
 ### Ori Finder with GC Skews
 
 - Computes GC skew to locate potential replication origin regions.
 - Within L windows around minimum GC skew, finds frequent k-mers with mismatches.
 - Uses a simple GUI to load FASTA files and display results.
+- Time complexity: O(n * k + N * 3^d * k)
 
 ---
 
