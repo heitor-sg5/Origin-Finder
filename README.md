@@ -85,7 +85,6 @@ Parameters like k (k-mer length), d (allowed mismatches), t (threshold count), a
 ## 🧪 Example Output
 
 Window -500: positions 4083876:4084376
-  
   Pattern: CCGGGATCC | Count: 4
   
   Pattern: TGTGGATAA | Count: 4
