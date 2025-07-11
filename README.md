@@ -85,6 +85,7 @@ Parameters like k (k-mer length), d (allowed mismatches), t (threshold count), a
 ## 🧪 Example Output
 
 - Window -500: positions 4083876:4084376
+  
   Pattern: CCGGGATCC | Count: 4
   
   Pattern: TGTGGATAA | Count: 4
@@ -92,18 +93,27 @@ Parameters like k (k-mer length), d (allowed mismatches), t (threshold count), a
 - Window 0: positions 4084126:4084626
   
   Pattern: GATCTTCCG | Count: 3
+  
   Pattern: CTTCCGGAA | Count: 3
+  
   Pattern: TCCGGAATC | Count: 3
+  
   Pattern: CCGGAATCT | Count: 3
+  
   Pattern: TTTTGCGCC | Count: 3
+  
   Pattern: GCACCGTGC | Count: 3
 
 - Window +500: positions 4084376:4084876
   
   Pattern: GATCGGGTT | Count: 3
+  
   Pattern: ATCGGGTTT | Count: 3
+  
   Pattern: GCACCGTGC | Count: 3
+  
   Pattern: GCTGATAAG | Count: 3
+  
   Pattern: AGCCGATCA | Count: 3
   
 
